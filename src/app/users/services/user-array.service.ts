@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 
 // rxjs
-import { EMPTY, Observable, of, throwError } from 'rxjs';
-import { catchError, switchMap } from 'rxjs/operators';
+import { EMPTY, Observable, of, throwError, catchError, switchMap } from 'rxjs';
 
 import { UserModel } from './../models/user.model';
 
