@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router, UrlTree } from '@angular/router';
+import { Component,  } from '@angular/core';
+import type { OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import type { UrlTree } from '@angular/router';
 
 // rxjs
 import { Observable, Subscription } from 'rxjs';
