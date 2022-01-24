@@ -3,9 +3,9 @@ import type {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  Router,
   UrlTree
 } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
