@@ -4,9 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import type { UrlTree } from '@angular/router';
 
 // rxjs
-import { Observable, Subscription } from 'rxjs';
+import type { Observable, Subscription } from 'rxjs';
 
-import { DialogService, CanComponentDeactivate } from './../../../core';
+import { DialogService } from './../../../core';
+import type { CanComponentDeactivate } from './../../../core';
 import { UserModel } from './../../models/user.model';
 import { UserArrayService } from './../../services/user-array.service';
 
