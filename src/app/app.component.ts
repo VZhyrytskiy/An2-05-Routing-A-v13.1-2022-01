@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
+import type { RouterOutlet } from '@angular/router';
 
 import { MessagesService } from './core';
 import { SpinnerService } from './widgets';
