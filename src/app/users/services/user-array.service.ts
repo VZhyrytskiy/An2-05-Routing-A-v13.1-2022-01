@@ -19,13 +19,13 @@ const userListObservable: Observable<Array<UserModel>> = of(userList);
 export class UserArrayService {
   users$: Observable<UserModel[]> = userListObservable;
 
-  getUser(id: number | string): Observable<UserModel> {
+  getUser(id: NonNullable<UserModel['id']> | string): Observable<UserModel> {
     return this.users$.pipe(
       switchMap((users: Array<UserModel>) => {
         const user = users.find(user => user.id === +id);
         return user ? of(user) : EMPTY;
       }),
-      catchError(err => throwError('Error in getUser method'))
+      catchError(err => throwError(() => 'Error in getUser method'))
     );
   }
 
