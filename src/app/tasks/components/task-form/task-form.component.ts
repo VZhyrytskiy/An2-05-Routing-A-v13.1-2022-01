@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  } from '@angular/core';
+import type { OnInit } from '@angular/core';
 
 import { TaskModel } from './../../models/task.model';
 import { TaskArrayService } from './../../services/task-array.service';
