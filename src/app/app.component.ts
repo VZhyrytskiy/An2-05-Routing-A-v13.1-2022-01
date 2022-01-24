@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import type { OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
-import type { RouterOutlet, NavigationEnd, NavigationStart } from '@angular/router';
+import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import type { RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Subscription, filter, map, switchMap } from 'rxjs';
 
