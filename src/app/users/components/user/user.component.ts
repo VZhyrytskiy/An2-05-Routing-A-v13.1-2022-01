@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
-import { UserModel } from './../../models/user.model';
+import type { UserModel } from './../../models/user.model';
 
 @Component({
   selector: 'app-user',
