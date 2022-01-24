@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import type { OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import type { RouterOutlet } from '@angular/router';
 
 import { MessagesService, CustomPreloadingStrategyService } from './core';
 import { SpinnerService } from './widgets';
