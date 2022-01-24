@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import type { OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 // rxjs
-import { EMPTY, Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { EMPTY, Observable, catchError } from 'rxjs';
 
-import { UserModel } from './../../models/user.model';
+import type { UserModel } from './../../models/user.model';
 import { UserArrayService } from './../../services/user-array.service';
 
 @Component({
