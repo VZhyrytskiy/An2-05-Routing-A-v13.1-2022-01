@@ -1,33 +1,29 @@
-import { Component,  } from '@angular/core';
-import type { OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import type { UrlTree } from '@angular/router';
-
-// rxjs
+import { Component, type OnInit, type OnDestroy} from '@angular/core';
+import { ActivatedRoute, Router, type UrlTree } from '@angular/router';
 import type { Observable, Subscription } from 'rxjs';
 
 import { DialogService } from './../../../core';
-import type { CanComponentDeactivate } from './../../../core';
 import { UserModel } from './../../models/user.model';
 import { UserArrayService } from './../../services/user-array.service';
+import type { CanComponentDeactivate } from './../../../core';
 
 @Component({
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.css']
 })
-export class UserFormComponent
-  implements OnInit, OnDestroy, CanComponentDeactivate {
+export class UserFormComponent implements OnInit, OnDestroy, CanComponentDeactivate {
   user!: UserModel;
   originalUser!: UserModel;
 
   private sub!: Subscription;
+  private onGoBackClick: boolean = false;
 
   constructor(
     private userArrayService: UserArrayService,
     private route: ActivatedRoute,
     private router: Router,
     private dialogService: DialogService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.user = new UserModel(null, '', '');
@@ -63,6 +59,7 @@ export class UserFormComponent
   }
 
   onGoBack(): void {
+    this.onGoBackClick = true;
     this.router.navigate(['./../../'], { relativeTo: this.route });
   }
 
@@ -71,7 +68,10 @@ export class UserFormComponent
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-      const flags = (Object.keys(this.originalUser) as (keyof UserModel)[]).map(key => {
+
+    if (this.onGoBackClick) return true;
+
+    const flags = (Object.keys(this.originalUser) as (keyof UserModel)[]).map(key => {
       if (this.originalUser[key] === this.user[key]) {
         return true;
       }
