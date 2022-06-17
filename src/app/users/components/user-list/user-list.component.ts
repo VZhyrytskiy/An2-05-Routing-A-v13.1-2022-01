@@ -60,9 +60,9 @@ export class UserListComponent implements OnInit {
     // this.router.navigate(link, {relativeTo: this.route});
   }
 
-  isEdited(user: UserModel): boolean {
+  isEdited({ id }: UserModel): boolean {
     if (this.editedUser) {
-      return user.id === this.editedUser.id;
+      return id === this.editedUser.id;
     }
     return false;
   }
