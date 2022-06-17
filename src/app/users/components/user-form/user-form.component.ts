@@ -1,6 +1,6 @@
 import { Component  } from '@angular/core';
 import type { OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, type Data } from '@angular/router';
 import type { UrlTree } from '@angular/router';
 
 import type { Observable } from 'rxjs';
@@ -29,7 +29,7 @@ export class UserFormComponent implements OnInit, CanComponentDeactivate {
   ngOnInit(): void {
     // data is an observable object
     // which contains custom and resolve data
-    this.route.data.pipe(map(data => data.user)).subscribe((user: UserModel) => {
+    this.route.data.pipe(map((data: Data) => data['user'])).subscribe((user: UserModel) => {
       this.user = { ...user };
       this.originalUser = { ...user };
     });
