@@ -3,7 +3,7 @@ import { Router,  } from '@angular/router';
 import type { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
 // rxjs
-import { Observable, of, EMPTY, catchError, take, switchMap } from 'rxjs';
+import { type Observable, of, EMPTY, catchError, take, switchMap } from 'rxjs';
 
 import { UserModel } from './../models/user.model';
 import { UserArrayService } from './../services/user-array.service';
