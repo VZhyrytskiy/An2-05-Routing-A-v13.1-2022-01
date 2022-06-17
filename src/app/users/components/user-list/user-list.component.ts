@@ -31,7 +31,7 @@ export class UserListComponent implements OnInit {
       );
   }
 
-  onEditUser({id} : UserModel): void {
+  onEditUser({ id } : UserModel): void {
     const link = ['/users/edit', id];
     this.router.navigate(link);
     // or
