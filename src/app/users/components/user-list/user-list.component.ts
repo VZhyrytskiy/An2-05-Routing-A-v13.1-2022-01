@@ -52,11 +52,11 @@ export class UserListComponent implements OnInit {
       .subscribe(observer);
   }
 
-  onEditUser(user: UserModel): void {
-    const link = ['/users/edit', user.id];
+  onEditUser({ id } : UserModel): void {
+    const link = ['/users/edit', id];
     this.router.navigate(link);
     // or
-    // const link = ['edit', user.id];
+    // const link = ['edit', id];
     // this.router.navigate(link, {relativeTo: this.route});
   }
 
