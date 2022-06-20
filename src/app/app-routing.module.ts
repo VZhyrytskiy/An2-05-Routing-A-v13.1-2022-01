@@ -1,13 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, type UrlSegment, type UrlSegmentGroup, type Route, type UrlMatchResult } from '@angular/router';
 
-import {
-  AboutComponent,
-  MessagesComponent,
-  LoginComponent,
-  PathNotFoundComponent
-} from './layout';
 import { AuthGuard } from './core';
+import { AbcComponent, AboutComponent, LoginComponent, MessagesComponent, PathNotFoundComponent } from './layout';
 
 const routes: Routes = [
   {
@@ -32,7 +27,14 @@ const routes: Routes = [
     component: MessagesComponent,
     outlet: 'messages'
   },
-
+  {
+    component: AbcComponent,
+    matcher: (url: UrlSegment[], group: UrlSegmentGroup, route: Route): UrlMatchResult | null => {
+      console.log(url, group, route);
+      // один фрагмент, который включает 'abc'
+      return url.length === 1 && url[0].path.includes('abc') ? ({consumed: url}) : null;
+    }
+  },
   {
     path: '',
     redirectTo: '/home',
