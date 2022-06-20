@@ -8,25 +8,25 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent,
-    data: { title: 'About' }
+    title: 'About'
   },
   {
     path: 'login',
     component: LoginComponent,
-    data: { title: 'Login' }
+    title: 'Login'
   },
   {
     path: 'admin',
     canLoad: [AuthGuard],
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
-    data: { title: 'Admin' }
+    title: 'Admin'
   },
   {
     path: 'users',
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
+    title: 'Users',
     data: {
-      preload: true,
-      title: 'Users'
+      preload: true
     }
   },
   {
@@ -36,6 +36,7 @@ const routes: Routes = [
   },
   {
     component: AbcComponent,
+    title: 'Abc Component',
     matcher: (url: UrlSegment[], group: UrlSegmentGroup, route: Route): UrlMatchResult | null => {
       console.log(url, group, route);
       // один фрагмент, который включает 'abc'
@@ -52,7 +53,7 @@ const routes: Routes = [
     // doesn't match any paths for routes defined in our configuration
     path: '**',
     component: PathNotFoundComponent,
-    data: { title: 'Page Not Found' }
+    title: 'Page Not Found'
   }
 ];
 

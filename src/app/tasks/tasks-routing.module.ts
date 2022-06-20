@@ -19,8 +19,8 @@ const routes: Routes = [
   {
     path: 'home',
     component: TaskListComponent,
+    title: 'Task Manager',
     data: {
-      title: 'Task Manager',
       meta: metaTags
     }
   },

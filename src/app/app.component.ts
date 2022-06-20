@@ -45,7 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
   onActivate($event: any, routerOutlet: RouterOutlet): void {
     console.log('Activated Component', $event, routerOutlet);
     // another way to set titles
-    this.titleService.setTitle(routerOutlet.activatedRouteData['title']);
+    // this.titleService.setTitle(routerOutlet.activatedRouteData['title']);
     this.metaService.addTags(routerOutlet.activatedRouteData['meta']);
   }
 
